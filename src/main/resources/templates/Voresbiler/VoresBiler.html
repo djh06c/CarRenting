@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VoresBiler</title>
+  <link rel="stylesheet" th:href="@{/css/Stylesheet.css}">
+</head>
+<body>
+
+<header>
+  <h1>Kailua Biludlejning</h1>
+  <a href="/" class="nav-button">Hjem</a>
+  <a href="/OmOs" class="nav-button">Om os</a>
+  <a href="/Voresbiler/VoresBiler" class="nav-button">Vores biler</a>
+
+</header>
+
+<main>
+  <h2> Vores Biler </h2>
+  <div class="car-grid">
+    <div class="car-card" th:each="car : ${cars}">
+      <h3 th:text="${car.brand + ' ' + car.model}">BMW X5</h3>
+      <p th:text="'Brændstof: ' + ${car.fuelType} + ' | ' + ${car.category}"> Diesel | luxury</p>
+      <p th:text="'Kilometerstand: ' + ${car.odometer} + ' km'"> 4500km</p>
+      <a th:href="@{'/cars/' + ${car.registrationNumber}}">Se detaljer</a>
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>

@@ -10,4 +10,10 @@ public class Homecontroller {
     public String home() {
         return "/home/index";
     }
+
+    @GetMapping("/Om os")
+    public String OmOs() {
+        return "/Omos/OmOs";
+    }
+
 }
