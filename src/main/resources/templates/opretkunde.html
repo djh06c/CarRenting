@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="da" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Opret Kunde</title>
+    <link rel="stylesheet" th:href="@{/css/Stylesheet.css}">
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Kailua Biludlejning – Opret Kunde</h1>
+</header>
+
+<main class="grid-container">
+    <section>
+        <h2>Ny Kunde</h2>
+        <form th:action="@{/customers/add}" method="post" th:object="${customer}">
+            <label>Kørekortnummer:
+                <input type="text" th:field="*{driverLicenceNumber}" required>
+            </label><br>
+
+            <label>Navn:
+                <input type="text" th:field="*{name}" required>
+            </label><br>
+
+            <label>Adresse:
+                <input type="text" th:field="*{address}">
+            </label><br>
+
+            <label>Postnummer:
+                <input type="text" th:field="*{zip}">
+            </label><br>
+
+            <label>By:
+                <input type="text" th:field="*{city}">
+            </label><br>
+
+            <label>Mobil:
+                <input type="text" th:field="*{mobilePhone}">
+            </label><br>
+
+            <label>Telefon:
+                <input type="text" th:field="*{phone}">
+            </label><br>
+
+            <label>Email:
+                <input type="email" th:field="*{email}">
+            </label><br>
+
+            <label>Kørt siden:
+                <input type="date" th:field="*{driverSinceDate}">
+            </label><br>
+
+            <button type="submit">Opret Kunde</button>
+        </form>
+    </section>
+
+
+    <!-- Højre kolonne: kundeliste -->
+    <section>
+        <h2>Eksisterende Kunder</h2>
+        <ul>
+            <li th:each="c : ${customers}" th:text="${c.name} + ' - ' + c.driverLicenceNumber">Navn - Kørekort</li>
+        </ul>
+    </section>
+</main>
+
+</body>
+</html>

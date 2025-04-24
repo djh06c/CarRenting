@@ -13,6 +13,7 @@ header{
     align-items: center;
 }
 
+
 footer{
     text-align: center;
     background: #006D77;
@@ -22,9 +23,9 @@ footer{
     width: 100%;
 }
 
-    .a {
-    width: 120px;
-    height: 60px;
+a {
+    width: 100px;
+    height: 50px;
     text-align: center;
     display: inline-block;
     font-size: 18px;
@@ -32,11 +33,12 @@ footer{
     background-color: darkgrey;
     border-radius: 8px;
     transition: 0.3s;
+    color: antiquewhite;
 }
-    .a:hover{
-        cursor: pointer;
-        transform: scale(1.1);
-    }
+a:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
 
     main{
         padding: 60px 40px;
@@ -66,3 +68,5 @@ footer{
         border-radius: 5px;
         font-weight: bold;
     }
+
+
